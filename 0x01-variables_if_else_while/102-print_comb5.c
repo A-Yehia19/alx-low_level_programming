@@ -8,8 +8,10 @@
 
 int main(void)
 {
-	for (int first = 0; first <= 98; first++)
-		for (int second = first + 1; second <= 99; second++)
+	int first, second;
+
+	for (first = 0; first <= 98; first++)
+		for (second = first + 1; second <= 99; second++)
 		{
 			if (first < 10)
 				putchar('0');

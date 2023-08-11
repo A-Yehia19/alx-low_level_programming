@@ -8,9 +8,11 @@
 
 int main(void)
 {
-	for (int first = '0'; first <= '9'; first++)
-		for (int second = first + 1; second <= '9'; second++)
-			for (int third = second + 1; third <= '9'; third++)
+	int first, second, third;
+
+	for (first = '0'; first <= '9'; first++)
+		for (second = first + 1; second <= '9'; second++)
+			for (third = second + 1; third <= '9'; third++)
 			{
 				putchar(first);
 				putchar(second);

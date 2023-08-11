@@ -8,8 +8,10 @@
 
 int main(void)
 {
-	for (int first = '0'; first <= '9'; first++)
-		for (int second = first + 1; second <= '9'; second++)
+	int first, second;
+
+	for (first = '0'; first <= '9'; first++)
+		for (second = first + 1; second <= '9'; second++)
 		{
 			putchar(first);
 			putchar(second);
