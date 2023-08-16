@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * times_table - detect sign of number
+ * print_times_table - detect sign of number
  * @n: last limit
  * Return: none
  */
 
-void times_table(int n)
+void print_times_table(int n)
 {
 	int num, i;
 
