@@ -9,25 +9,22 @@
 
 int main(void)
 {
-	long num[100], i;
+	long num[1000], i, sum;
 
 	num[0] = 1;
 	num[1] = 2;
-	i = 2;
+	i = 1;
 
-	printf("1, 2");
-	while (1)
+	sum = 0;
+	while (num[i] < 4000000)
 	{
-		printf(", ");
-		num[i] = num[i - 1] + num[i - 2];
-
-		if (num[i] > 4000000)
-			break;
-
-		printf("%ld", num[i]);
+		if (num[i] % 2 == 0)
+			sum += num[i];
+		
 		i++;
+		num[i] = num[i - 1] + num[i - 2];
 	}
 
-	printf("\n");
+	printf("%ld\n", sum);
 	return (0);
 }

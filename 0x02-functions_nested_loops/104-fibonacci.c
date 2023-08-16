@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	long first, second, i, ans;
+	unsigned long int first, second, i, ans;
 
 	first = 1;
 	second = 2;
@@ -18,7 +18,7 @@ int main(void)
 	for (i = 2 ; i < 98 ; i++)
 	{
 		ans = second + first;
-		printf("%ld", ans);
+		printf("%lu", ans);
 		if (i != 97)
 			printf(", ");
 
