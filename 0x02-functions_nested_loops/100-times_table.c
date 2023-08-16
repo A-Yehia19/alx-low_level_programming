@@ -14,10 +14,10 @@ void print_times_table(int n)
 	{
 		for (i = 0 ; i <= n ; i++)
 		{
+			int ans;
+
 			if (i >= 15 || num >= 15)
 				break;
-
-			int ans;
 
 			ans = num * i;
 			if (i == 0)
