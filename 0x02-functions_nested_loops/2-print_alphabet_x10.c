@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include <time.h>
-#include <stdio.h>
+#include "main.h"
 
 /**
  * print_alphabet - print alphabets 10 times
@@ -21,16 +19,4 @@ void print_alphabet(void)
 		}
 		putchar('\n');
 	}
-}
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-
-int main(void)
-{
-	print_alphabet();
-	return (0);
 }
