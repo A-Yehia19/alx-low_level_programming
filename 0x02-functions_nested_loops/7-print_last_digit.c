@@ -1,15 +1,15 @@
 #include "main.h"
-
 /**
- * print_last_digit - detect sign of number
- * @n: takes in a character
- * Return: 0 for uppercase, 1 for lowercase
+ * print_last_digit - function that prints the last digit
+ * @n: takes ln an integer
+ * Return: returns output
  */
-
 int print_last_digit(int n)
 {
+	int ln = n % 10;
+
 	if (n < 0)
-		n *= -1;
-	_putchar(n % 10 + '0');
-	return (n % 10);
+		ln = ln * -1;
+	_putchar(ln + '0');
+	return (ln);
 }
