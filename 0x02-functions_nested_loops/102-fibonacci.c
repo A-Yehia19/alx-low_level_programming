@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	long long num[100], i;
+	long num[100], i;
 
 	num[0] = 1;
 	num[1] = 1;
@@ -18,7 +18,7 @@ int main(void)
 	for (i = 2 ; i < 51 ; i++)
 	{
 		num[i] = num[i-1] + num[i-2];
-		printf("%lld", num[i]);
+		printf("%ld", num[i]);
 		if (i != 50)
 			printf(", ");
 	}
