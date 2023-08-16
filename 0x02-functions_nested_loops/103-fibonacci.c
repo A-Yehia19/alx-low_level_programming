@@ -12,15 +12,20 @@ int main(void)
 	long num[100], i;
 
 	num[0] = 1;
-	num[1] = 1;
+	num[1] = 2;
+	i = 2;
 
-	printf("1, ");
-	for (i = 2 ; i < 51 ; i++)
+	printf("1, 2");
+	while (1)
 	{
+		printf(", ");
 		num[i] = num[i - 1] + num[i - 2];
+
+		if (num[i] > 4000000)
+			break;
+
 		printf("%ld", num[i]);
-		if (i != 50)
-			printf(", ");
+		i++;
 	}
 
 	printf("\n");
