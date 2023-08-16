@@ -20,7 +20,7 @@ int main(void)
 	{
 		if (num[i] % 2 == 0)
 			sum += num[i];
-		
+
 		i++;
 		num[i] = num[i - 1] + num[i - 2];
 	}
