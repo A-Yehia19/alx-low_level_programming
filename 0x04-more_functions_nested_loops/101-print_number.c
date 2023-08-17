@@ -1,41 +1,20 @@
 #include "main.h"
-#include <math.h>
 
 /**
- * print_number - function name
- * @n: input argument
- * Return: result
- */
+* print_number - Prints a number
+* @n: The number to print
+*/
 
 void print_number(int n)
 {
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
-
 	if (n < 0)
 	{
 		_putchar('-');
-		n *= -1;
+		n = -n;
 	}
 
-	int len, dummy;
+	if (n > 9)
+		print_number(n / 10);
 
-	len = 0;
-	dummy = n;
-	while (dummy)
-	{
-		len++;
-		dummy /= 10;
-	}
-
-	for (len-- ; len >= 0 ; len--)
-	{
-		int digit;
-
-		digit = n / pow(10, len);
-		_putchar(digit % 10 + '0');
-	}
+	_putchar(n % 10 + '0');
 }
