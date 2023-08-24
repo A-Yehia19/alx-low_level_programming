@@ -27,7 +27,7 @@ void print_buffer(char *b, int size)
 
 		for (j = 0; j < 10; j++)
 		{
-			if(i + j >= size)
+			if (i + j >= size)
 				break;
 
 			if (isprint(b[i + j]) == 0)
