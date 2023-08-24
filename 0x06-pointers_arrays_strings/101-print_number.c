@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_number - function name
- * @n: input
- * Return: result
- */
+* print_number - Prints a number
+* @n: The number to print
+* Return: result
+*/
 
 void print_number(int n)
 {
