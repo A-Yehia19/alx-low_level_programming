@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strcat - function name
+ * _strstr - function name
  * @haystack: input
  * @needle: input
  * Return: result
@@ -24,7 +24,7 @@ char *_strstr(char *haystack, char *needle)
 	}
 
 	if (haystack[start] == '\0')
-		return ((char*)0);
+		return ((char *)0);
 	else
 		return (haystack + start);
 }
