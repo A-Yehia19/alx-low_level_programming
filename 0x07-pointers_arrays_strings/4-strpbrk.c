@@ -24,10 +24,10 @@ char *_strpbrk(char *s, char *accept)
 		}
 
 		if (found)
-			break;
+			return (s);
 
 		s++;
 	}
 
-	return (s);
+	return ((void*)0);
 }
