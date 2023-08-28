@@ -1,12 +1,13 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - main function
- *
- * Return: returns 0
+ * set_string - function name
+ * @s: input
+ * @to: input
+ * Return: result
  */
 
-int main(void)
+void set_string(char **s, char *to)
 {
-	
+	*s = to;
 }

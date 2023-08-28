@@ -1,22 +1,12 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * _strcat - function name
- * @dest: input
- * @src: input
- * Return: result
+ * main - main function
+ *
+ * Return: returns 0
  */
 
-char *_strcat(char *dest, char *src)
+int main(void)
 {
-	int len_dest, len_src;
-
-	for (len_dest = 0 ; dest[len_dest] != '\0' ; len_dest++)
-		;
-
-	for (len_src = 0 ; src[len_src] != '\0' ; len_src++, len_dest++)
-		dest[len_dest] = src[len_src];
-
-	dest[len_dest] = '\0';
-	return (dest);
+	
 }
