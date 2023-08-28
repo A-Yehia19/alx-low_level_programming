@@ -3,11 +3,14 @@
 
 int main(void)
 {
-    char *s0 = "Bob Dylan";
-    char *s1 = "Robert Allen";
+    char *s = "hello";
+    char *f;
 
-    printf("%s, %s\n", s0, s1);
-    set_string(&s1, s0);
-    printf("%s, %s\n", s0, s1);
+    f = _strchr(s, 'l');
+
+    if (f != NULL)
+    {
+        printf("%s\n", f);
+    }
     return (0);
 }
