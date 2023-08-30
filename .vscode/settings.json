@@ -60,6 +60,7 @@
         "sml": "cd $dir && sml $fileName"
     },
     "files.associations": {
-        "main.h": "c"
+        "main.h": "c",
+        "stdio.h": "c"
     }
 }
