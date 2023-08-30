@@ -17,6 +17,7 @@ int len(char *s)
  * check_palindrome - function name
  * @start: input
  * @end: input
+ * @s: input
  * Return: result
  */
 int check_palindrome(int start, int end, char *s)
@@ -27,7 +28,7 @@ int check_palindrome(int start, int end, char *s)
 	if (s[start] != s[end])
 		return (0);
 	else
-		return check_palindrome(start+1, end-1, s);
+		return check_palindrome(start + 1, end - 1, s);
 }
 
 /**

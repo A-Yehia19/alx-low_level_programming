@@ -14,7 +14,7 @@ int my_prime(int current, int target)
 	if (target % current == 0)
 		return (0);
 	else
-		return my_prime(current-1, target);
+		return my_prime(current - 1, target);
 }
 
 /**
@@ -28,5 +28,5 @@ int is_prime_number(int n)
 	if (n < 2)
 		return (0);
 	else
-		return (my_prime(n-1, n));
+		return (my_prime(n - 1, n));
 }
