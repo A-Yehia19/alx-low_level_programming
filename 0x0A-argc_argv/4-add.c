@@ -10,14 +10,14 @@
 
 int check_string (char* string)
 {
-    int i;
-    
-    for (i = 0; string[i] != '\0'; ++i)
-    {
-        if (!isdigit (string[i]))
-            return (0);
-    }
-    return (1);
+	int i;
+
+	for (i = 0; string[i] != '\0'; ++i)
+	{
+		if (!isdigit (string[i]))
+			return (0);
+	}
+	return (1);
 }
 
 
@@ -32,16 +32,16 @@ int main(int argc, char *argv[])
 {
 	int sum, i;
 
-    sum = 0;
-    for (i = 1; i < argc; i++)
-    {
-        if (check_string(argv[i]) == 0)
-        {
-            printf("Error\n");
-            return (1);
-        }
-        sum += atoi(argv[i]);
-    }
-    printf("%d\n", sum);
-    return (0);
+	sum = 0;
+	for (i = 1; i < argc; i++)
+	{
+		if (check_string(argv[i]) == 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += atoi(argv[i]);
+	}
+	printf("%d\n", sum);
+	return (0);
 }
