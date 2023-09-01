@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 			ans += cents;
 		}
 
-		printf ("%d\n", ans);
+		printf("%d\n", ans);
 		return (0);
 	}
 	else

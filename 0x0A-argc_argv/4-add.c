@@ -8,13 +8,13 @@
  * Return: Always ans
  */
 
-int check_string (char* string)
+int check_string(char *string)
 {
 	int i;
 
 	for (i = 0; string[i] != '\0'; ++i)
 	{
-		if (!isdigit (string[i]))
+		if (!isdigit(string[i]))
 			return (0);
 	}
 	return (1);
