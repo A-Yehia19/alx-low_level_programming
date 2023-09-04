@@ -1,0 +1,13 @@
+#include "main.h"
+
+/**
+ * free_grid - function name
+ * @grid: input
+ * @height: input
+ * Return: result
+ */
+
+void free_grid(int **grid, int height)
+{
+	
+}
