@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - check the code for
- *
- * Return: Always 0.
+ * main - prints  name of file.
+ * Return: always 0
  */
+
 int main(void)
 {
 	printf("%s\n", __FILE__);
