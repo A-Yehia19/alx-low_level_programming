@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * init_dog - function name
+ * new_dog - function name
  * @name: input
  * @age: input
  * @owner: input
@@ -21,7 +21,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
-	
+
 	dog->name = malloc(lenName * sizeof(char));
 	if (dog->name == NULL)
 	{
@@ -42,7 +42,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	for (i = 0; i <= lenOwner; i++)
 		dog->owner[i] = owner[i];
-	
+
 	dog->age = age;
 
 	return (dog);
