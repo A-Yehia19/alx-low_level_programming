@@ -4,6 +4,7 @@
 
 /**
  * print_numbers - function name
+ * @n: input
  * @separator: input
  * Return: result
  */
