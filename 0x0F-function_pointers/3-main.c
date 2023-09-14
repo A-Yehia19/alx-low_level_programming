@@ -3,8 +3,9 @@
 #include "3-calc.h"
 
 /**
- * get_op_func - function name
- * @s: input
+ * main - function name
+ * @argc: input
+ * @argv: input
  * Return: result
  */
 
