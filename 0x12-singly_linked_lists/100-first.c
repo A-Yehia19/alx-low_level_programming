@@ -1,15 +1,12 @@
-#include "lists.h"
 #include <stdio.h>
 
+void print_something(void) __attribute__ ((constructor));
+
 /**
- * printBefore - function name
- * @void: input
- * Return: result
+ *print_something - prints a msg before the main
  */
 
-void printBefore(void)__attribute__((constructor));
-
-void printBefore(void)
+void print_something(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
