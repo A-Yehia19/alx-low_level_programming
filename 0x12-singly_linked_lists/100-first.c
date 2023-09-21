@@ -7,7 +7,7 @@
  * Return: result
  */
 
-void printBefore(void)__attribute__ ((constructor));
+void printBefore(void)__attribute__((constructor));
 
 void printBefore(void)
 {
