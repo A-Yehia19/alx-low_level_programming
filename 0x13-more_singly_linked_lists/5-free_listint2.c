@@ -17,7 +17,7 @@ void free_listint2(listint_t **head)
 	if (head == NULL || *head == NULL)
 		return;
 
-	for (pointer = *head; pointer->next != NULL; pointer = next)
+	for (pointer = *head; pointer != NULL; pointer = next)
 	{
 		next = pointer->next;
 		free(pointer);
