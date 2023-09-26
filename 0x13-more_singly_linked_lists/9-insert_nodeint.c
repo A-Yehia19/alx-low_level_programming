@@ -17,6 +17,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *new;
 	unsigned int counter;
 
+	if (head == NULL || *head == NULL)/*Ask if there is not input*/
+		return (NULL);
+
 	for (counter = 0; counter < idx - 1 && pointer != NULL; counter++)
 	{
 		pointer = pointer->next;
