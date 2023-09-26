@@ -19,9 +19,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	if (head == NULL)
 		return (NULL);
-	
 
-	for (counter = 0; counter < idx - 1 && pointer->next != NULL; counter++)
+	for (counter = 0; counter < idx - 1 && pointer->next && pointer; counter++)
 	{
 		pointer = pointer->next;
 	}
