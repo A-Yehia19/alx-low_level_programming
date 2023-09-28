@@ -2,9 +2,7 @@
 #include <stdlib.h>
 
 /**
- * flip_bits - function name
- * @n: input
- * @m: input
+ * get_endianness - function name
  * Return: result
  */
 
