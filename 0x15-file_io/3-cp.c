@@ -11,6 +11,7 @@ int main(int ac, char **av)
 {
 	int file_from, file_to, size;
 	char *buffer;
+
 	if (ac != 3)
 	{
 		dprintf(2, "Usage: %s filename text\n", av[0]);
