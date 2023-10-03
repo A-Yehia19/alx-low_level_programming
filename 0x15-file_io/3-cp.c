@@ -29,12 +29,12 @@ int main(int ac, char **av)
 		dprintf(2, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
+
 	/* writing on file */
 	buffer = malloc(1024 * sizeof(char));
-	do {
-		size = read(file_from, buffer, sizeof(buffer));
+	while ((size = read(file_from, buffer, sizeof(buffer))) != 0)
 		write(file_to, buffer, size);
-	} while (size != 0);
+
 	/* closing file */
 	if (close(file_from) == -1)
 	{
