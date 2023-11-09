@@ -15,7 +15,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	if (!*head)
 		return (-1);
-	
+
 	else if (index == 0)
 	{
 		*head = (*head)->next;
@@ -27,11 +27,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	{
 		for (; index > 0; index--)
 			node = node->next;
-		
+
 		next = node->next;
 		prev = node->prev;
 
-		printf("done\n");
 		if (next)
 			next->prev = prev;
 		prev->next = next;
