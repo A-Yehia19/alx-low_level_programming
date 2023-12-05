@@ -7,7 +7,8 @@
  * @value: value to set
  * Return: 1 if it succeeded, 0 otherwise
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value){
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
 	unsigned long index;
 	hash_node_t *node;
 

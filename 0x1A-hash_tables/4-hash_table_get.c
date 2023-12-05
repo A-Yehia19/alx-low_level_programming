@@ -4,9 +4,10 @@
  * hash_table_get - get value from hash table associated with a key
  * @ht: hash table
  * @key: key to get index
- * Return: value associated with the element, or NULL if key couldn’t be found
+ * Return: value associated with the element, or NULL if key not found
  */
-char *hash_table_get(const hash_table_t *ht, const char *key){
+char *hash_table_get(const hash_table_t *ht, const char *key)
+{
 	unsigned long index;
 	hash_node_t *node;
 
