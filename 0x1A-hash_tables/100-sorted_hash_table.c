@@ -31,6 +31,13 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 
+/**
+ * shash_insert_sort - insert node into sorted linked list
+ * @ht: hash table
+ * @node: node to insert
+ * @key: key to get index
+ * Return: NONE
+ */
 void shash_insert_sort(shash_table_t *ht, shash_node_t *node, const char *key)
 {
 	shash_node_t *tmp;
@@ -71,7 +78,7 @@ void shash_insert_sort(shash_table_t *ht, shash_node_t *node, const char *key)
 }
 
 /**
- * hash_table_set - add element to hash table associated with a key
+ * shash_table_set - add element to hash table associated with a key (sorted)
  * @ht: hash table
  * @key: key to get index
  * @value: value to set
