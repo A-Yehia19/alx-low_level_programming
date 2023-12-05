@@ -31,6 +31,45 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 
+void shash_insert_sort(shash_table_t *ht, shash_node_t *node, const char *key)
+{
+	shash_node_t *tmp;
+
+	if (ht->shead == NULL)
+	{
+		node->sprev = NULL;
+		node->snext = NULL;
+		ht->shead = node;
+		ht->stail = node;
+		return;
+	}
+	tmp = ht->shead;
+	while (tmp->snext != NULL && strcmp(tmp->snext->key, key) < 0)
+		tmp = tmp->snext;
+
+	if (tmp->snext == NULL)
+	{
+		node->sprev = tmp;
+		node->snext = NULL;
+		tmp->snext = node;
+		ht->stail = node;
+	}
+	else if (tmp->sprev == NULL)
+	{
+		node->sprev = NULL;
+		node->snext = tmp;
+		tmp->sprev = node;
+		ht->shead = node;
+	}
+	else
+	{
+		node->sprev = tmp->sprev;
+		node->snext = tmp;
+		tmp->sprev->snext = node;
+		tmp->sprev = node;
+	}
+}
+
 /**
  * hash_table_set - add element to hash table associated with a key
  * @ht: hash table
@@ -41,7 +80,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long index;
-	shash_node_t *node, tmp;
+	shash_node_t *node;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
@@ -72,41 +111,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	ht->array[index] = node;
 
 	/* insert node into sorted linked list */
-	if (ht->shead == NULL)
-	{
-		node->sprev = NULL;
-		node->snext = NULL;
-		ht->shead = node;
-		ht->stail = node;
-	}
-	else
-	{
-		tmp = *(ht->shead);
-		while (tmp.snext != NULL && strcmp(tmp.snext->key, key) < 0)
-			tmp = *(tmp.snext);
-
-		if (tmp.snext == NULL)
-		{
-			node->sprev = tmp.sprev;
-			node->snext = NULL;
-			tmp.sprev->snext = node;
-			ht->stail = node;
-		}
-		else if (tmp.sprev == NULL)
-		{
-			node->sprev = NULL;
-			node->snext = tmp.snext;
-			tmp.snext->sprev = node;
-			ht->shead = node;
-		}
-		else
-		{
-			node->sprev = tmp.sprev;
-			node->snext = tmp.snext;
-			tmp.sprev->snext = node;
-			tmp.snext->sprev = node;
-		}
-	}
+	shash_insert_sort(ht, node, key);
 
 	return (1);
 }
