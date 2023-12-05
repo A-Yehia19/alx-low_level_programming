@@ -54,19 +54,19 @@ void shash_insert_sort(shash_table_t *ht, shash_node_t *node, const char *key)
 	while (tmp->snext != NULL && strcmp(tmp->snext->key, key) < 0)
 		tmp = tmp->snext;
 
-	if (tmp->snext == NULL)
-	{
-		node->sprev = tmp;
-		node->snext = NULL;
-		tmp->snext = node;
-		ht->stail = node;
-	}
-	else if (tmp->sprev == NULL)
+	if (tmp->sprev == NULL)
 	{
 		node->sprev = NULL;
 		node->snext = tmp;
 		tmp->sprev = node;
 		ht->shead = node;
+	}
+	else if (tmp->snext == NULL)
+	{
+		node->sprev = tmp;
+		node->snext = NULL;
+		tmp->snext = node;
+		ht->stail = node;
 	}
 	else
 	{
