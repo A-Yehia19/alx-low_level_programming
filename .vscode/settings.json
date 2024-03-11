@@ -6,6 +6,9 @@
     "code-runner.saveFileBeforeRun": true,
     "git.enableSmartCommit": true,
     "code-runner.executorMap": {
-        "c": "cd $dir && gcc -Wall -pedantic -Werror -Wextra -std=gnu89 *.c -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm $fileNameWithoutExt.exe"
+        "c": "cd $dir && gcc -Wall -pedantic -Werror -Wextra -std=gnu89 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm $fileNameWithoutExt.exe"
+    },
+    "files.associations": {
+        "type_traits": "c"
     }
 }
