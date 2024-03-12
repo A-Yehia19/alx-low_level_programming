@@ -9,6 +9,7 @@
         "c": "cd $dir && gcc -Wall -pedantic -Werror -Wextra -std=gnu89 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt && rm $fileNameWithoutExt.exe"
     },
     "files.associations": {
-        "type_traits": "c"
+        "type_traits": "c",
+        "stdio.h": "c"
     }
 }
