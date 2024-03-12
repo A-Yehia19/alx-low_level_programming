@@ -1,3 +1,4 @@
+#include "search_algos.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
