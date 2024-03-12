@@ -14,9 +14,9 @@ void print_array(int *array, size_t start, size_t end)
 {
 	for (; start <= end; start++)
 	{
-		printf ("%d", array[start]);
+		printf("%d", array[start]);
 		if (start != end)
-			printf (", ");
+			printf(", ");
 	}
 	printf("\n");
 }
@@ -42,7 +42,7 @@ int binary_search(int *array, size_t size, int value)
 	while (array != NULL && start <= end)
 	{
 		mid = (start + end) / 2;
-		printf ("Searching in array: ");
+		printf("Searching in array: ");
 		print_array(array, start, end);
 
 		if (array[mid] > value)

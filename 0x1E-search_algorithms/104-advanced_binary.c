@@ -15,17 +15,18 @@ void print_array(int *array, size_t start, size_t end)
 	printf("Searching in array: ");
 	for (; start <= end; start++)
 	{
-		printf ("%d", array[start]);
+		printf("%d", array[start]);
 		if (start != end)
-			printf (", ");
+			printf(", ");
 	}
 	printf("\n");
 }
 
 /**
- * binary_search - perform binary search on an array
+ * search - perform binary search on an array
  * @array: array to serach in
- * @size: size of array
+ * @low: lower range of search
+ * @high: upper range of search
  * @value: value to search in
  *
  * Return: index of first occurence

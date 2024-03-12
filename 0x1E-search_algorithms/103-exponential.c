@@ -15,9 +15,9 @@ void print_array(int *array, size_t start, size_t end)
 {
 	for (; start <= end; start++)
 	{
-		printf ("%d", array[start]);
+		printf("%d", array[start]);
 		if (start != end)
-			printf (", ");
+			printf(", ");
 	}
 	printf("\n");
 }
@@ -43,7 +43,7 @@ int binary_search(int *array, int value, size_t low, size_t high)
 	while (array != NULL && start <= end)
 	{
 		mid = (start + end) / 2;
-		printf ("Searching in array: ");
+		printf("Searching in array: ");
 		print_array(array, start, end);
 
 		if (array[mid] > value)
@@ -78,12 +78,12 @@ int exponential_search(int *array, size_t size, int value)
 		return (0);
 
 	for (i = 1; i < size && array[i] <= value && array != NULL; i *= 2)
-		printf ("Value checked array[%u] = [%d]\n", i, array[i]);
+		printf("Value checked array[%u] = [%d]\n", i, array[i]);
 
 	if (i >= size)
 		high = size - 1;
-	else 
+	else
 		high = i;
-	
+
 	return (binary_search(array, value, i / 2, high));
 }
