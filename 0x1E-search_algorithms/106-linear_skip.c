@@ -3,64 +3,50 @@
 #include <stdio.h>
 
 /**
- * linear_skip - perform linear search on skip list
- * @list: skip list pointer
- * @value: value to search in
+ * linear_skip - searches for a value in a sorted skip list of integers
  *
- * Return: node of value
+ * @list: a pointer to the head of the list to search in
+ * @value: the value to search for
+ *
+ * Return: a pointer to the first node where value is located or NULL
  */
 
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *last = NULL;
+	skiplist_t *cur, *prev;
 
-	if (list == NULL)
+	if (!list)
 		return (NULL);
 
-	printf("Value checked at index [%lu] = [%d]\n",
-			list->express->index, list->express->n);
-
-	if (list->express->n >= value)
+	cur = list;
+	while (cur->next && cur->n < value)
 	{
-		printf("Value found between indexes [%lu] and [%lu]\n",
-				list->index, list->express->index);
-		for (; list ; list = list->next)
+		prev = cur;
+		if (cur->express)
+			cur = cur->express;
+		else
 		{
-			printf("Value checked at index [%lu] = [%d]\n",
-					list->index, list->n);
-
-			if (list->n == value)
-				return (list);
+			while (cur->next)
+				cur = cur->next;
 		}
-		return (NULL);
+		if (cur->next)
+			printf("Value checked at index [%lu] = [%i]\n", cur->index, cur->n);
 	}
-	else
-		return (linear_skip(list->express, value));
-}
 
-/**
- * main - Entry point
- *
- * Return: Always EXIT_SUCCESS
- */
-int main(void)
-{
-	skiplist_t *list, *res;
-	int array[] = {
-		0, 1, 2, 3, 4, 7, 12, 15, 18, 19, 23, 53, 61, 62, 76, 99
-	};
-	size_t size = sizeof(array) / sizeof(array[0]);
+	printf("Value found between indexes [%lu] and [%lu]\n",
+			prev->index, cur->index);
 
-	list = create_skiplist(array, size);
-	print_skiplist(list);
+	cur = prev;
+	while (cur && cur->n <= value)
+	{
+		printf("Value checked at index [%lu] = [%i]\n", cur->index, cur->n);
+		if (cur->n == value)
+			return (cur);
+		else if (cur->next)
+			cur = cur->next;
+		else
+			return (NULL);
+	}
 
-	res =  linear_skip(list, 53);
-	printf("Found %d at index: %u\n\n", 53, res->index);
-	res =  linear_skip(list, 2);
-	printf("Found %d at index: %u\n\n", 2, res->index);
-	res =  linear_skip(list, 999);
-	printf("Found %d at index: %p\n", 999, (void *) res);
-
-	free_skiplist(list);
-	return (EXIT_SUCCESS);
+	return (NULL);
 }
