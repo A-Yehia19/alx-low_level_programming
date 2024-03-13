@@ -14,13 +14,10 @@
 
 int jump_search(int *array, size_t size, int value)
 {
-	int answer;
 	size_t current, steps;
 
-	answer = -1;
-	steps = sqrt(size);
-
 	/* jumps */
+	steps = sqrt(size);
 	current = 0;
 	do {
 		printf("Value checked array[%lu] = [%d]\n", current, array[current]);
@@ -41,11 +38,8 @@ int jump_search(int *array, size_t size, int value)
 				current, array[current]);
 
 		if (array[current] == value)
-		{
-			answer = value;
-			break;
-		}
+			return (current);
 	}
 
-	return (answer);
+	return (-1);
 }
