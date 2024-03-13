@@ -48,7 +48,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		else
 			end = current;
 
-		printf("Value checked array[%lu] = [%d]\n",
+		printf("Value checked array [%lu] = [%d]\n",
 				end, get_index(list, end)->n);
 
 		if (get_index(list, end)->n == value)
