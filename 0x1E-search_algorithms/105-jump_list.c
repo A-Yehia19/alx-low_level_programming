@@ -50,16 +50,13 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 		printf("Value checked at index [%lu] = [%d]\n",
 				end, get_index(list, end)->n);
-
-		if (get_index(list, end)->n == value)
-			return (get_index(list, end));
 	} while (current < size && get_index(list, current)->n < value);
 
 	/* linear search until found or end of array */
 	printf("Value found between indexes [%lu] and [%lu]\n",
 			current - steps, end);
 
-	for (current -= steps; current < size ; current++)
+	for (current -= steps; get_index(list, current) ; current++)
 	{
 		printf("Value checked at index [%lu] = [%d]\n",
 				current, get_index(list, current)->n);
@@ -69,4 +66,30 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	}
 
 	return (NULL);
+}
+
+int main(void)
+{
+    listint_t *list, *res;
+    int array[] = {
+        0, 1, 2, 3, 4, 7, 12, 15, 18, 19, 23, 53, 61, 62, 76, 99
+    };
+    size_t size = sizeof(array) / sizeof(array[0]);
+
+    list = create_list(array, size);
+    print_list(list);
+
+    res =  jump_list(list, size, 53);
+    printf("Found %d at index: %lu\n\n", 53, res->index);
+    res =  jump_list(list, size, 2);
+    printf("Found %d at index: %lu\n\n", 2, res->index);
+    res =  jump_list(list, size, 99);
+    printf("Found %d at index: %lu\n\n", 99, res->index);
+    res =  jump_list(list, size, 0);
+    printf("Found %d at index: %lu\n\n", 0, res->index);
+    res =  jump_list(list, size, 999);
+    printf("Found %d at index: %p\n", 999, (void *) res);
+
+    free_list(list);
+    return (EXIT_SUCCESS);
 }
