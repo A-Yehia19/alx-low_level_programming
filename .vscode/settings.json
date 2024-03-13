@@ -11,6 +11,7 @@
     "files.associations": {
         "type_traits": "c",
         "stdio.h": "c",
-        "search_algos.h": "c"
+        "search_algos.h": "c",
+        "stdlib.h": "c"
     }
 }
