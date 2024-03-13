@@ -32,7 +32,7 @@ listint_t *get_index(listint_t *list, size_t index)
 
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t current, steps;
+	size_t current, steps, end;
 
 	if (list == NULL)
 		return (NULL);
@@ -41,18 +41,23 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	steps = sqrt(size);
 	current = 0;
 	do {
-		printf("Value checked array[%lu] = [%d]\n",
-				current, get_index(list, current)->n);
-
-		if (get_index(list, current)->n == value)
-			return (get_index(list, current));
-
 		current += steps;
+
+		if (current >= size)
+			end = size - 1;
+		else
+			end = current;
+
+		printf("Value checked array[%lu] = [%d]\n",
+				end, get_index(list, end)->n);
+
+		if (get_index(list, end)->n == value)
+			return (get_index(list, end));
 	} while (current < size && get_index(list, current)->n < value);
 
 	/* linear search until found or end of array */
 	printf("Value found between indexes [%lu] and [%lu]\n",
-			current - steps, current);
+			current - steps, end);
 
 	for (current -= steps; current < size ; current++)
 	{
