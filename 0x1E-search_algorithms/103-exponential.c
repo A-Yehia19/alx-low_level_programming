@@ -24,7 +24,7 @@ void print_array(int *array, size_t start, size_t end)
 }
 
 /**
- * binary_search - perform binary search on an array
+ * search - perform binary search on an array
  * @array: array to serach in
  * @value: value to search in
  * @low: lower index to search
@@ -33,7 +33,7 @@ void print_array(int *array, size_t start, size_t end)
  * Return: index of first occurence
  */
 
-int binary_search(int *array, int value, size_t low, size_t high)
+int search(int *array, int value, size_t low, size_t high)
 {
 	int answer;
 	size_t start, mid, end;
@@ -86,5 +86,5 @@ int exponential_search(int *array, size_t size, int value)
 	else
 		high = i;
 
-	return (binary_search(array, value, i / 2, high));
+	return (search(array, value, i / 2, high));
 }
