@@ -3,50 +3,59 @@
 #include <stdio.h>
 
 /**
- * linear_skip - searches for a value in a sorted skip list of integers
+ * get_last - get last node in skip list
+ * @list: skip list pointer
  *
- * @list: a pointer to the head of the list to search in
- * @value: the value to search for
+ * Return: last node
+ */
+
+skiplist_t *get_last(skiplist_t *list)
+{
+	if (list->next == NULL)
+		return (list);
+
+	return (get_last(list->next));
+}
+
+/**
+ * linear_skip - perform linear search on skip list
+ * @list: skip list pointer
+ * @value: value to search in
  *
- * Return: a pointer to the first node where value is located or NULL
+ * Return: node of value
  */
 
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *cur, *prev;
+	skiplist_t *end;
 
-	if (!list)
+	if (list == NULL)
 		return (NULL);
 
-	cur = list;
-	while (cur->next && cur->n < value)
+	printf("Value checked at index [%lu] = [%d]\n",
+			list->express->index, list->express->n);
+
+	if (list->express->n >= value || list->express->express == NULL)
 	{
-		prev = cur;
-		if (cur->express)
-			cur = cur->express;
+		if (list->express->n >= value)
+			end = list->express;
 		else
 		{
-			while (cur->next)
-				cur = cur->next;
+			end = get_last(list);
+			list = list->express;
 		}
-		if (cur->next)
-			printf("Value checked at index [%lu] = [%i]\n", cur->index, cur->n);
+		printf("Value found between indexes [%lu] and [%lu]\n",
+				list->index, end->index);
+		for (; list ; list = list->next)
+		{
+			printf("Value checked at index [%lu] = [%d]\n",
+					list->index, list->n);
+
+			if (list->n == value)
+				return (list);
+		}
+		return (NULL);
 	}
 
-	printf("Value found between indexes [%lu] and [%lu]\n",
-			prev->index, cur->index);
-
-	cur = prev;
-	while (cur && cur->n <= value)
-	{
-		printf("Value checked at index [%lu] = [%i]\n", cur->index, cur->n);
-		if (cur->n == value)
-			return (cur);
-		else if (cur->next)
-			cur = cur->next;
-		else
-			return (NULL);
-	}
-
-	return (NULL);
+	return (linear_skip(list->express, value));
 }
