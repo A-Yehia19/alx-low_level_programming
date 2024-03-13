@@ -76,6 +76,8 @@ int exponential_search(int *array, size_t size, int value)
 {
 	size_t i, high;
 
+	if (array == NULL)
+		return (-1);
 
 	if (array[0] == value)
 	{
@@ -83,7 +85,7 @@ int exponential_search(int *array, size_t size, int value)
 		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 	}
 	else
-		for (i = 1; i < size && array[i] <= value && array != NULL; i *= 2)
+		for (i = 1; i < size && array[i] <= value; i *= 2)
 			printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 
 	if (i >= size)
