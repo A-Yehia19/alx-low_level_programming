@@ -14,6 +14,7 @@
 
 void print_array(int *array, size_t start, size_t end)
 {
+	printf("Searching in array: ");
 	for (; start <= end; start++)
 	{
 		printf("%d", array[start]);
@@ -38,13 +39,14 @@ int search(int *array, int value, size_t low, size_t high)
 	int answer;
 	size_t start, mid, end;
 
+	printf("Value found between indexes [%lu] and [%lu]\n", low, high);
+
 	answer = -1;
 	start = low;
 	end = high;
 	while (array != NULL && start <= end)
 	{
 		mid = (start + end) / 2;
-		printf("Searching in array: ");
 		print_array(array, start, end);
 
 		if (array[mid] > value)
